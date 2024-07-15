@@ -1,0 +1,20 @@
+$bgcolor: lightblue;
+$textcolor: darkblue;
+$fontsize: 18px;
+
+@font-face {
+    font-family: 'CodingFont';
+    src: url('/fontStyles/ProggyClean.ttf') format('woff')
+}
+
+body {
+    background-color: $bgcolor;
+    color: $textcolor;
+    font-size: $fontsize;
+}
+
+p {
+    color: $textcolor;
+    font-size: $fontsize;
+    font-family: 'CodingFont';
+}
