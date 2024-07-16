@@ -55,7 +55,7 @@ class LanguageInformation extends React.Component{
         axios
             .post("http://localhost:8000/wel/",{
                 language: this.state.language,
-                detail: this.state.description,
+                description: this.state.description,
             })
             .then((res) => {
                 this.setState({
@@ -64,43 +64,62 @@ class LanguageInformation extends React.Component{
                 });
             })
             .catch((err) => {});
+        
+        window.location.reload(false);
+    };
+
+    handleDelete = (e) => {
+        e.preventDefault();
+
+        axios
+            .delete("http://localhost:8000/wel/",{
+
+            })
+            .then((res) => {
+                console.log("All objects in current working model have been deleted.");
+            })
+            .catch((err) => {
+                console.log("Error in attempting to delete all objects in current working model.");
+            })
+        
+        window.location.reload(false);
     };
 
     /*
-        <form onSubmit={this.handleSubmit}>
-                <div className="input-group-prepend">
-                    <span className="input-group-text" id="basic-addon1">
-                        {" "}
-                        Author{" "}
-                    </span>
-                <input type="text" className="form-control"
-                placeholder="Name of the Programming Language"
-                aria-label="Programming Language"
-                aria-describedby="basic-addon1"
-                value={this.state.language} lanaguage="language"
-                onChange={this.handleInput} />
-                </div>
+    */
+    render() {
+        return (
+        <div className="container jumbotron ">
+            <form onSubmit={this.handleSubmit}>
                 <div className="input-group mb-3">
                     <div className="input-group-prepend">
-                        <span className="input-group-text">
-                            Description of Programming Language
+                        <span className="input-group-text" id="basic-addon1">
+                            {" "}
+                            Language{" "}
                         </span>
                     </div>
-                    <textarea className="form-control "
-                                aria-label="With textarea"
-                                placeholder="Give a description of this programming language ..."
-                                value={this.state.description} name="description"
-                                onChange={this.handleInput}>
-                    </textarea>
+                    <input type="text" className="form-control"
+                            placeholder="Name of the Programming Language"
+                            aria-label="Programming Language"
+                            aria-describedby="basic-addon1"
+                            value={this.state.language} name="language"
+                            onChange={this.handleInput} />
+                </div>
+                <div className="input-group mb-3">
+                    <div className="input-group-text">
+                        Programming Language Description
+                    </div>
+                <textarea className="form-control"
+                            aria-label="With textarea"
+                            placeholder="Give a description of this programming language..."
+                            value={this.state.description} name="description"
+                            onChange={this.handleInput}>
+                </textarea>
                 </div>
                 <button type="submit" className="btn btn-primary mb-5">
                     Submit
                 </button>
             </form>
-    */
-    render() {
-        return (
-        <div className="container jumbotron ">
             <hr
                 style={{
                     color: "#000000",
@@ -128,6 +147,7 @@ class LanguageInformation extends React.Component{
                         <span className="border border-primary "></span>
                     </div>
                 ))}
+                <button onClick={this.handleDelete} className="btn btn-primary">Delete</button>
             </div>
         );
     }
