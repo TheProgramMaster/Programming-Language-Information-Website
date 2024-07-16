@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavigationTabs from "../Components/NavigationTabs";
-//import LanguageInformation from "../Components/LanguageInformation.js";
+import LanguageInformation from "../Components/LanguageInformation.js";
 
 const ProgrammingLanguages = () => {
     return (
@@ -18,6 +18,7 @@ const ProgrammingLanguages = () => {
                 industry today.
             </p>
         </div>
+        <LanguageInformation></LanguageInformation>
     </div>
     );
 };

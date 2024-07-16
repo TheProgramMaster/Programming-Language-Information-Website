@@ -5,12 +5,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 class LanguageInformation extends React.Component{
     state = {
-        info: [],
+        details: [],
         language: "",
         description: "",
     };
-    componentDidMount() {
+
+    componentDidMount(){
         let data;
+
         axios
             .get("http://localhost:8000/wel/")
             .then((res) => {
@@ -40,18 +42,19 @@ class LanguageInformation extends React.Component{
                 return "yellow";
         }
     };
+
     handleInput = (e) => {
         this.setState({
             [e.target.name]: e.target.value,
         });
     };
 
-    handleSubmit = (e) => {
+    handleSubmit = (e) =>{
         e.preventDefault();
 
         axios
             .post("http://localhost:8000/wel/",{
-                name: this.state.language,
+                language: this.state.language,
                 detail: this.state.description,
             })
             .then((res) => {
@@ -62,63 +65,63 @@ class LanguageInformation extends React.Component{
             })
             .catch((err) => {});
     };
+
+    /*
+        <form onSubmit={this.handleSubmit}>
+                <div className="input-group-prepend">
+                    <span className="input-group-text" id="basic-addon1">
+                        {" "}
+                        Author{" "}
+                    </span>
+                <input type="text" className="form-control"
+                placeholder="Name of the Programming Language"
+                aria-label="Programming Language"
+                aria-describedby="basic-addon1"
+                value={this.state.language} lanaguage="language"
+                onChange={this.handleInput} />
+                </div>
+                <div className="input-group mb-3">
+                    <div className="input-group-prepend">
+                        <span className="input-group-text">
+                            Description of Programming Language
+                        </span>
+                    </div>
+                    <textarea className="form-control "
+                                aria-label="With textarea"
+                                placeholder="Give a description of this programming language ..."
+                                value={this.state.description} name="description"
+                                onChange={this.handleInput}>
+                    </textarea>
+                </div>
+                <button type="submit" className="btn btn-primary mb-5">
+                    Submit
+                </button>
+            </form>
+    */
     render() {
         return (
-            <div className="container jumbotron ">
-                <form onSubmit={this.handleSubmit}>
-                    <div className="input-group mb-3">
-                        <div className="input-group-prepend">
-                            <span className="input-group-text" id="basic=addon1">
-                                {" "}
-                                Author{" "}
-                            </span>
-                        </div>
-                        <input type="text" className="form-control"
-                                placeholder="Name of the Programming Language"
-                                aria-label="Programming Language"
-                                aria-describedby="basic-addon1"
-                                value={this.state.user} name="user"
-                                onChange={this.handleInput} />
-                    </div>
-                    <div className="input-group mb-3">
-                        <div className="input-group-prepend">
-                            <span className="input-group-text">
-                                Programming Language
-                            </span>
-                        </div>
-                        <textarea className="form-control"
-                                  aria-label="With textarea"
-                                  placeholder="Enter information for programming language"
-                                  value={this.state.description}
-                                  name="description"
-                                  onChange={this.handleInput}>
-                        </textarea>
-                    </div>
-                    <button type="submit" className="btn btn-primary mb-5">
-                        Submit
-                    </button>
-                </form>
-                <hr
-                    style={{
-                        color:"#000000",
-                        backgroundColor: "#000000",
-                        height: 0.5,
-                        borderColor: "#000000",
-                    }}
-                />
+        <div className="container jumbotron ">
+            <hr
+                style={{
+                    color: "#000000",
+                    backgroundColor: "#000000",
+                    height: 0.5,
+                    borderColor: "#000000",
+                }}
+            />
                 {this.state.details.map((detail, id) => (
-                    <div key={id}>
+                    <div key={id}> 
                         <div className="card shadow-lg">
-                            <div className={"bg-"+this.renderSwitch(id % 6) + " card-header"}>
-                                Description {id + 1}</div>
+                            <div className={"bg-" + this.renderSwitch(id % 6) +
+                                            " card-header"}>{detail.language}</div>
                             <div className="card-body">
                                 <blockquote className={"text-" + this.renderSwitch(id % 6) +
                                                         " blockquote mb-0"}>
-                                        <h1>{detail.description}</h1>
-                                        <footer className="blockquote-footer">
-                                            {" "}
-                                            <cite title="Source Title">{detail.language}</cite>
-                                        </footer>
+                                    <h1> {detail.detail} </h1>
+                                    <footer className="blockquote-footer">
+                                        {" "}
+                                        <cite title="Source Title">{detail.description}</cite>
+                                    </footer>
                                 </blockquote>
                             </div>
                         </div>

@@ -10,7 +10,7 @@ class ReactView(APIView):
     serializer_class = ReactSerializer
 
     def get(self, request):
-        detail = [ {"language": detail.language, "info": detail.info, "description": detail.description}
+        detail = [ {"language": detail.language, "description": detail.description}
         for detail in React.objects.all()]
         return Response(detail)
     
