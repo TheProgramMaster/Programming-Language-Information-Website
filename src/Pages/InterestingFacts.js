@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavigationTabs from "../Components/NavigationTabs";
+import InterestingInformation from "../Components/InterestingInformation";
 
 const InterestingFacts = () => {
     return (
@@ -17,6 +18,7 @@ const InterestingFacts = () => {
                     of each language.
                 </p>
             </div>
+            <InterestingInformation></InterestingInformation>
         </div>
     )
 };

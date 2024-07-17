@@ -17,8 +17,18 @@ Including another URLconf
 from django.contrib import admin
 from django.conf.urls import include
 from django.urls import path, re_path
+from rest_framework import routers
 from programmingLanguageWebsite.views import *
+
+router = routers.DefaultRouter()
+router.register(r"wel",ReactView,basename='React')
+router.register(r'interesting',InterestingReactView,basename='InterestingReact')
+#path('wel/', ReactView.as_view(), name="something"),
+#path('interesting/',InterestingReactView.as_view(),name="interestingApplications"),
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('wel/', ReactView.as_view(), name="something"),
+    path('wel/',ReactView.as_view()),
+    path('interesting/',InterestingReactView.as_view()),
+    path('api-auth/',include('rest_framework.urls',namespace='rest_framework')),
 ]
