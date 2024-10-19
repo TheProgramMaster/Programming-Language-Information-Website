@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/Programming-Language-Information-Website/static/css/main.176502f6.css",
+    "main.js": "/Programming-Language-Information-Website/static/js/main.68e28733.js",
+    "static/js/453.e785f3af.chunk.js": "/Programming-Language-Information-Website/static/js/453.e785f3af.chunk.js",
+    "static/media/ProggyClean.ttf": "/Programming-Language-Information-Website/static/media/ProggyClean.bf195fef82458c949a69.ttf",
+    "static/media/logo.svg": "/Programming-Language-Information-Website/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/Programming-Language-Information-Website/index.html",
+    "main.176502f6.css.map": "/Programming-Language-Information-Website/static/css/main.176502f6.css.map",
+    "main.68e28733.js.map": "/Programming-Language-Information-Website/static/js/main.68e28733.js.map",
+    "453.e785f3af.chunk.js.map": "/Programming-Language-Information-Website/static/js/453.e785f3af.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.176502f6.css",
+    "static/js/main.68e28733.js"
+  ]
+}
